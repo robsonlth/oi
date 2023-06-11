@@ -5,21 +5,39 @@
     <style>
         #nao-btn {
             display: block;
+            transition: opacity 0.3s ease-in-out;
         }
 
         #sim-btn {
             display: block;
+            transition: transform 0.3s ease-in-out;
         }
 
         #nao-btn.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        #sim-btn.enlarged {
+            transform: scale(1.2);
+        }
+
+        #invitation {
             display: none;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
     </style>
 </head>
 <body>
     <h1>Casa comigo?</h1>
     <button id="nao-btn" onclick="hideNoButton()">Não</button>
-    <button id="sim-btn" onclick="showWeddingInvite()">Sim</button>
+    <button id="sim-btn" onclick="showInvitation()">Sim</button>
+    <img id="invitation" src="convite.png" alt="Convite de Casamento">
 
     <script>
         function hideNoButton() {
@@ -27,9 +45,12 @@
             naoBtn.classList.add("hidden");
         }
 
-        function showWeddingInvite() {
+        function showInvitation() {
             var simBtn = document.getElementById("sim-btn");
-            simBtn.innerHTML = '<img src="convite.png" alt="Convite de Casamento">';
+            var invitation = document.getElementById("invitation");
+
+            simBtn.classList.add("enlarged");
+            invitation.style.display = "block";
         }
     </script>
 </body>
