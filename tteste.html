@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pedido de Casamento</title>
+    <style>
+        #nao-btn {
+            display: block;
+        }
+
+        #sim-btn {
+            display: block;
+        }
+
+        #nao-btn.hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Casa comigo?</h1>
+    <button id="nao-btn" onclick="hideNoButton()">Não</button>
+    <button id="sim-btn" onclick="showWeddingInvite()">Sim</button>
+
+    <script>
+        function hideNoButton() {
+            var naoBtn = document.getElementById("nao-btn");
+            naoBtn.classList.add("hidden");
+        }
+
+        function showWeddingInvite() {
+            var simBtn = document.getElementById("sim-btn");
+            simBtn.innerHTML = '<img src="convite.png" alt="Convite de Casamento">';
+        }
+    </script>
+</body>
+</html>
